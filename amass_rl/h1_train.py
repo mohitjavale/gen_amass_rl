@@ -73,6 +73,7 @@ def get_cfgs():
         "clip_actions": 100.0,
 
         # robot init
+        # "urdf_path": str(Path(__file__, "../../robots/h1/urdf/h1.urdf").resolve()),
         "urdf_path": str(Path(__file__, "../../robots/h1/urdf/h1.urdf").resolve()),
         "base_init_pos": [0.0, 0.0, 1.1],
         "base_init_quat": [1.0, 0.0, 0.0, 0.0],

@@ -1,6 +1,7 @@
 import argparse
 import os
 import pickle
+from pathlib import Path
 
 import torch
 from h1_env import H1Env
@@ -25,6 +26,16 @@ def main():
     log_dir = f"logs/{args.exp_name}"
     env_cfg, obs_cfg, reward_cfg, command_cfg, train_cfg = pickle.load(open(f"logs/{args.exp_name}/cfgs.pkl", "rb"))
     # reward_cfg["reward_scales"] = {}
+    
+    # babel-local compatibility path stuff
+    # use babel paths (even if policy trained on local)
+    # env_cfg['urdf_path'] = str(Path(__file__, "../../robots/h1/urdf/h1.urdf").resolve())
+    # env_cfg["xml_path"] =  str(Path(__file__, '../../robots/h1/xml/h1.xml').resolve())
+    # env_cfg["motion_data_path"] = str(Path(__file__, '../../data/amass_phc_filtered.pkl').resolve())
+    # use local (for faster loading)
+    env_cfg['urdf_path'] = '/home/mohitjavale/gen_amass_rl/robots/h1/urdf/h1.urdf'
+    env_cfg["xml_path"] =  '/home/mohitjavale/gen_amass_rl/robots/h1/xml/h1.xml'
+    env_cfg["motion_data_path"] = '/home/mohitjavale/gen_amass_rl/data/amass_phc_filtered.pkl'
 
     # load env
     env = H1Env(

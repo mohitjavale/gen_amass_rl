@@ -2,10 +2,8 @@
     - base test
 
 - r2
-    - added random time init
+    - r1 extenede
 
 - r3
-    - increased dof tracking coeff
+    - increassed order of magnitude of all regularization terms
 
-- r4
-    - added termination_track_rb_threshold, termination reward 

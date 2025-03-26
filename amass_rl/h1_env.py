@@ -255,12 +255,12 @@ class H1Env:
 				(self.dof_pos - self.default_dof_pos) * self.obs_scales["dof_pos"],        # 19
 				self.dof_vel * self.obs_scales["dof_vel"],                                 # 19
 
-				self.motion_rb_pos.reshape(self.num_envs, -1),							   # 60
-				self.motion_rb_quat.reshape(self.num_envs, -1),							   # 80
-				self.motion_rb_lin_vel.reshape(self.num_envs, -1),						   # 60
-				self.motion_rb_ang_vel.reshape(self.num_envs, -1),						   # 60
-				self.motion_dof_pos.reshape(self.num_envs, -1),							   # 19
-				self.motion_dof_vel.reshape(self.num_envs, -1),							   # 19
+				self.motion_rb_pos.reshape(self.num_envs, -1) - self.rb_pos.reshape(self.num_envs, -1),							   # 60
+				self.motion_rb_quat.reshape(self.num_envs, -1) - self.rb_quat.reshape(self.num_envs, -1),							   # 80
+				self.motion_rb_lin_vel.reshape(self.num_envs, -1) - self.rb_lin_vel.reshape(self.num_envs, -1),						   # 60
+				self.motion_rb_ang_vel.reshape(self.num_envs, -1) - self.rb_ang_vel.reshape(self.num_envs, -1),						   # 60
+				self.motion_dof_pos.reshape(self.num_envs, -1) - self.dof_pos.reshape(self.num_envs, -1),							   # 19
+				self.motion_dof_vel.reshape(self.num_envs, -1) - self.dof_vel.reshape(self.num_envs, -1),							   # 19
 
 				self.actions,                                                              # 19
 			],
@@ -278,12 +278,12 @@ class H1Env:
 				(self.dof_pos - self.default_dof_pos) * self.obs_scales["dof_pos"],        # 19
 				self.dof_vel * self.obs_scales["dof_vel"],                                 # 19
 
-				self.motion_rb_pos.reshape(self.num_envs, -1),							   # 60
-				self.motion_rb_quat.reshape(self.num_envs, -1),							   # 80
-				self.motion_rb_lin_vel.reshape(self.num_envs, -1),						   # 60
-				self.motion_rb_ang_vel.reshape(self.num_envs, -1),						   # 60
-				self.motion_dof_pos.reshape(self.num_envs, -1),							   # 19
-				self.motion_dof_vel.reshape(self.num_envs, -1),							   # 19
+				self.motion_rb_pos.reshape(self.num_envs, -1) - self.rb_pos.reshape(self.num_envs, -1),							   # 60
+				self.motion_rb_quat.reshape(self.num_envs, -1) - self.rb_quat.reshape(self.num_envs, -1),							   # 80
+				self.motion_rb_lin_vel.reshape(self.num_envs, -1) - self.rb_lin_vel.reshape(self.num_envs, -1),						   # 60
+				self.motion_rb_ang_vel.reshape(self.num_envs, -1) - self.rb_ang_vel.reshape(self.num_envs, -1),						   # 60
+				self.motion_dof_pos.reshape(self.num_envs, -1) - self.dof_pos.reshape(self.num_envs, -1),							   # 19
+				self.motion_dof_vel.reshape(self.num_envs, -1) - self.dof_vel.reshape(self.num_envs, -1),							   # 19
 
 				self.actions,                                                              # 19
 			],
