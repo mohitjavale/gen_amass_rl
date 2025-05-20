@@ -1,0 +1,43 @@
+> [0;32m/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py[0m(54)[0;36mstore_config[0;34m()[0m
+[0;32m     53 [0;31m            [0;32mimport[0m [0mipdb[0m[0;34m;[0m [0mipdb[0m[0;34m.[0m[0mset_trace[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m---> 54 [0;31m            [0mwandb[0m[0;34m.[0m[0mconfig[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0;34m{[0m[0;34m"env_cfg"[0m[0;34m:[0m [0menv_cfg[0m[0;34m.[0m[0mto_dict[0m[0;34m([0m[0;34m)[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m     55 [0;31m        [0;32mexcept[0m [0mException[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m
+<function H1Env.__init__.<locals>.<lambda> at 0x1531e0c50940>
+Traceback (most recent call last):
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 54, in store_config
+    wandb.config.update({"env_cfg": env_cfg.to_dict()})
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 54, in store_config
+    wandb.config.update({"env_cfg": env_cfg.to_dict()})
+  File "/home/mjavale/miniconda3/envs/gen2/lib/python3.10/bdb.py", line 90, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/home/mjavale/miniconda3/envs/gen2/lib/python3.10/bdb.py", line 115, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mjavale/gen_amass_rl/amass_rl_amp/h1_train_amp.py", line 294, in <module>
+    main()
+  File "/home/mjavale/gen_amass_rl/amass_rl_amp/h1_train_amp.py", line 288, in main
+    runner.learn(
+  File "/home/mjavale/rsl_rl/rsl_rl/runners/on_policy_runner.py", line 148, in learn
+    self.writer.log_config(self.env.cfg, self.cfg, self.alg_cfg, self.policy_cfg)
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 72, in log_config
+    self.store_config(env_cfg, runner_cfg, alg_cfg, policy_cfg)
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 56, in store_config
+    wandb.config.update({"env_cfg": asdict(env_cfg)})
+  File "/home/mjavale/miniconda3/envs/gen2/lib/python3.10/dataclasses.py", line 1237, in asdict
+    raise TypeError("asdict() should be called on dataclass instances")
+TypeError: asdict() should be called on dataclass instances
+
+If you suspect this is an IPython 8.34.0 bug, please report it at:
+    https://github.com/ipython/ipython/issues
+or send an email to the mailing list at ipython-dev@python.org
+
+You can print a more detailed traceback right now with "%tb", or use "%debug"
+to interactively debug it.
+
+Extra-detailed tracebacks for bug-reporting purposes can be enabled via:
+    %config Application.verbose_crash=True

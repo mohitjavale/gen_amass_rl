@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 53, in store_config
+    wandb.config.update({"env_cfg": env_cfg.to_dict()})
+AttributeError: 'object' object has no attribute 'to_dict'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mjavale/gen_amass_rl/amass_rl_amp/h1_train_amp.py", line 294, in <module>
+    main()
+  File "/home/mjavale/gen_amass_rl/amass_rl_amp/h1_train_amp.py", line 288, in main
+    runner.learn(
+  File "/home/mjavale/rsl_rl/rsl_rl/runners/on_policy_runner.py", line 148, in learn
+    self.writer.log_config(self.env.cfg, self.cfg, self.alg_cfg, self.policy_cfg)
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 71, in log_config
+    self.store_config(env_cfg, runner_cfg, alg_cfg, policy_cfg)
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 55, in store_config
+    wandb.config.update({"env_cfg": asdict(env_cfg)})
+  File "/home/mjavale/miniconda3/envs/gen2/lib/python3.10/dataclasses.py", line 1237, in asdict
+    raise TypeError("asdict() should be called on dataclass instances")
+TypeError: asdict() should be called on dataclass instances
+Traceback (most recent call last):
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 53, in store_config
+    wandb.config.update({"env_cfg": env_cfg.to_dict()})
+AttributeError: 'object' object has no attribute 'to_dict'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mjavale/gen_amass_rl/amass_rl_amp/h1_train_amp.py", line 294, in <module>
+    main()
+  File "/home/mjavale/gen_amass_rl/amass_rl_amp/h1_train_amp.py", line 288, in main
+    runner.learn(
+  File "/home/mjavale/rsl_rl/rsl_rl/runners/on_policy_runner.py", line 148, in learn
+    self.writer.log_config(self.env.cfg, self.cfg, self.alg_cfg, self.policy_cfg)
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 71, in log_config
+    self.store_config(env_cfg, runner_cfg, alg_cfg, policy_cfg)
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 55, in store_config
+    wandb.config.update({"env_cfg": asdict(env_cfg)})
+  File "/home/mjavale/miniconda3/envs/gen2/lib/python3.10/dataclasses.py", line 1237, in asdict
+    raise TypeError("asdict() should be called on dataclass instances")
+TypeError: asdict() should be called on dataclass instances

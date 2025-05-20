@@ -1,0 +1,110 @@
+_wandb:
+    value:
+        cli_version: 0.19.11
+        m: []
+        python_version: 3.10.16
+        t:
+            "1":
+                - 1
+                - 53
+                - 55
+            "2":
+                - 1
+                - 53
+                - 55
+            "3":
+                - 13
+                - 23
+                - 55
+            "4": 3.10.16
+            "5": 0.19.11
+            "8":
+                - 5
+            "12": 0.19.11
+            "13": linux-x86_64
+alg_cfg:
+    value:
+        clip_param: 0.2
+        desired_kl: 0.01
+        entropy_coef: 0.01
+        gamma: 0.99
+        lam: 0.95
+        learning_rate: 0.001
+        max_grad_norm: 1
+        num_learning_epochs: 5
+        num_mini_batches: 4
+        schedule: adaptive
+        use_clipped_value_loss: true
+        value_loss_coef: 1
+log_dir:
+    value: logs/r19
+policy_cfg:
+    value:
+        activation: elu
+        actor_hidden_dims:
+            - 512
+            - 256
+            - 128
+        critic_hidden_dims:
+            - 512
+            - 256
+            - 128
+        init_noise_std: 1
+runner_cfg:
+    value:
+        algorithm:
+            clip_param: 0.2
+            desired_kl: 0.01
+            entropy_coef: 0.01
+            gamma: 0.99
+            lam: 0.95
+            learning_rate: 0.001
+            max_grad_norm: 1
+            num_learning_epochs: 5
+            num_mini_batches: 4
+            schedule: adaptive
+            use_clipped_value_loss: true
+            value_loss_coef: 1
+        amp_data_path: /home/mjavale/gen_amass_rl/amass_rl_amp/amp_data
+        dataset_names:
+            - amass_5
+        dataset_weights:
+            - 1
+        discriminator:
+            hidden_dims:
+                - 512
+                - 256
+                - 128
+            reward_scale: 1
+        empirical_normalization: true
+        logger: wandb
+        num_steps_per_env: 24
+        policy:
+            activation: elu
+            actor_hidden_dims:
+                - 512
+                - 256
+                - 128
+            critic_hidden_dims:
+                - 512
+                - 256
+                - 128
+            init_noise_std: 1
+        runner:
+            checkpoint: -1
+            experiment_name: r19
+            load_run: -1
+            log_interval: 1
+            max_iterations: 5000
+            num_steps_per_env: 24
+            record_interval: -1
+            resume: false
+            resume_path: null
+            run_name: ""
+            runner_class_name: runner_class_name
+            save_interval: 100
+        runner_class_name: OnPolicyRunner
+        save_interval: 100
+        seed: 1
+        slow_down_factor: 1
+        wandb_project: gen_amass_rl

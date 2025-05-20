@@ -1,0 +1,37 @@
+> [0;32m/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py[0m(54)[0;36mstore_config[0;34m()[0m
+[0;32m     53 [0;31m            [0;32mimport[0m [0mipdb[0m[0;34m;[0m [0mipdb[0m[0;34m.[0m[0mset_trace[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m---> 54 [0;31m            [0mwandb[0m[0;34m.[0m[0mconfig[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0;34m{[0m[0;34m"env_cfg"[0m[0;34m:[0m [0menv_cfg[0m[0;34m.[0m[0mto_dict[0m[0;34m([0m[0;34m)[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m     55 [0;31m        [0;32mexcept[0m [0mException[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m
+{'control_freq': 50, 'decimation': 4, 'episode_length_s': 20.0, 'num_actions': 19, 'action_scale': 0.1, 'clip_actions': 100.0, 'urdf_path': '/home/mjavale/gen_amass_rl/robots/h1/urdf/h1.urdf', 'base_init_pos': [0.0, 0.0, 1.1], 'base_init_quat': [1.0, 0.0, 0.0, 0.0], 'default_joint_angles': {'left_hip_yaw_joint': 0.0, 'left_hip_roll_joint': 0.0, 'left_hip_pitch_joint': -0.4, 'left_knee_joint': 0.8, 'left_ankle_joint': -0.4, 'right_hip_yaw_joint': 0.0, 'right_hip_roll_joint': 0, 'right_hip_pitch_joint': -0.4, 'right_knee_joint': 0.8, 'right_ankle_joint': -0.4, 'torso_joint': 0.0, 'left_shoulder_pitch_joint': 0.0, 'left_shoulder_roll_joint': 0, 'left_shoulder_yaw_joint': 0.0, 'left_elbow_joint': 0.0, 'right_shoulder_pitch_joint': 0.0, 'right_shoulder_roll_joint': 0.0, 'right_shoulder_yaw_joint': 0.0, 'right_elbow_joint': 0.0}, 'dof_names': ['left_hip_yaw_joint', 'left_hip_roll_joint', 'left_hip_pitch_joint', 'left_knee_joint', 'left_ankle_joint', 'right_hip_yaw_joint', 'right_hip_roll_joint', 'right_hip_pitch_joint', 'right_knee_joint', 'right_ankle_joint', 'torso_joint', 'left_shoulder_pitch_joint', 'left_shoulder_roll_joint', 'left_shoulder_yaw_joint', 'left_elbow_joint', 'right_shoulder_pitch_joint', 'right_shoulder_roll_joint', 'right_shoulder_yaw_joint', 'right_elbow_joint'], 'kp': {'hip_yaw': 200.0, 'hip_roll': 200.0, 'hip_pitch': 200.0, 'knee': 300.0, 'ankle': 40.0, 'torso': 300.0, 'shoulder': 100.0, 'elbow': 100.0}, 'kd': {'hip_yaw': 5.0, 'hip_roll': 5.0, 'hip_pitch': 5.0, 'knee': 6.0, 'ankle': 2.0, 'torso': 6.0, 'shoulder': 2.0, 'elbow': 2.0}, 'use_sim_PD_controller': False, 'simulate_action_latency': False, 'termination_track_rb_threshold': 0.25, 'randomize_friction': True, 'randomize_base_mass': True, 'continuous_push': False, 'randomize_kp_scale': True, 'randomize_kd_scale': True, 'friction_range': [0.3, 0.8], 'added_mass_range': [-1, 1], 'continuous_push_force_range': [-1, 1], 'kp_scale_range': [0.8, 1.2], 'kd_scale_range': [0.8, 1.2], 'xml_path': '/home/mjavale/gen_amass_rl/robots/h1/xml/h1.xml', 'motion_data_path': '/home/mjavale/gen_amass_rl/data/amass_phc_filtered.pkl', 'num_motions': 10}
+Traceback (most recent call last):
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 54, in store_config
+    wandb.config.update({"env_cfg": env_cfg.to_dict()})
+AttributeError: 'dict' object has no attribute 'to_dict'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mjavale/gen_amass_rl/amass_rl_amp/h1_train_amp.py", line 294, in <module>
+    main()
+  File "/home/mjavale/gen_amass_rl/amass_rl_amp/h1_train_amp.py", line 288, in main
+    runner.learn(
+  File "/home/mjavale/rsl_rl/rsl_rl/runners/on_policy_runner.py", line 148, in learn
+    self.writer.log_config(self.env.cfg, self.cfg, self.alg_cfg, self.policy_cfg)
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 72, in log_config
+    self.store_config(env_cfg, runner_cfg, alg_cfg, policy_cfg)
+  File "/home/mjavale/rsl_rl/rsl_rl/utils/wandb_utils.py", line 56, in store_config
+    wandb.config.update({"env_cfg": asdict(env_cfg)})
+  File "/home/mjavale/miniconda3/envs/gen2/lib/python3.10/dataclasses.py", line 1237, in asdict
+    raise TypeError("asdict() should be called on dataclass instances")
+TypeError: asdict() should be called on dataclass instances
+
+If you suspect this is an IPython 8.34.0 bug, please report it at:
+    https://github.com/ipython/ipython/issues
+or send an email to the mailing list at ipython-dev@python.org
+
+You can print a more detailed traceback right now with "%tb", or use "%debug"
+to interactively debug it.
+
+Extra-detailed tracebacks for bug-reporting purposes can be enabled via:
+    %config Application.verbose_crash=True
